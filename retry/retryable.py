@@ -33,20 +33,6 @@ def _retry(f, exceptions=None, pre_handler=None, recover=None, max_attempts=2, a
 
 
 def retryable(exceptions=None, max_attempts=2, pre_handler=None, recover=None, allow_log=False):
-    """
-    Usage:
-    def handle()
-       ...
-
-    @retryable(exceptions=TypeError, max_attempts=2, pre_handler='handle'
-    def execute(...)
-
-    :param exceptions:
-    :param max_attempts: 
-    :param pre_handler:
-    :param allow_log:
-    :return:
-    """
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
